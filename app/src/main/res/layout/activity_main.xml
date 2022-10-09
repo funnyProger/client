@@ -32,22 +32,20 @@
         android:minHeight="48dp"
         android:textColorHint="#757575" />
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/tb_message">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/tb_data"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" /></LinearLayout>
-    </ScrollView>
-
+    <EditText
+        android:id="@+id/tb_serverData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/tb_message"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="84dp"
+        android:layout_marginEnd="117dp"
+        android:layout_marginBottom="253dp"
+        android:ems="10"
+        android:hint="Ответ от сервера"
+        android:inputType="textPersonName"
+        android:minHeight="48dp" />
 
 
 </RelativeLayout>
