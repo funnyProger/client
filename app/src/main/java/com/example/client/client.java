@@ -37,8 +37,9 @@ public class client extends AppCompatActivity {
         catch (SocketException e) {
             System.out.println("Сокет не открыт :(");
             e.printStackTrace();
+        } finally {
+            init();
         }
-        init();
     }
 
     private void init(){
@@ -52,28 +53,44 @@ public class client extends AppCompatActivity {
             @Override
             public void run() {
                 try {
-                String str = tb_message.getText().toString();
-                byte[] bytes = str.getBytes();
-                InetAddress address = InetAddress.getByName("192.168.56.1");
-                DatagramPacket packet = new DatagramPacket(bytes, bytes.length, address, 5040);
-                socket.send(packet);
-                System.out.println("Данные отправлены :]");
-                tb_message.setText("");
-
-                byte[] bytes1 = new byte[1024];
-                DatagramPacket packet1 = new DatagramPacket(bytes1, bytes.length);
-                socket.receive(packet1);
-                System.out.println("Данные получены");
-                String str1 = new String(packet1.getData(), 0, packet1.getLength());
-                tb_serverData.setText(str1);
-                socket.close();
-
+                sendMessage();
                 } catch (IOException e) {
-                    System.out.println("Ошибка получения или отпрвления данных :(");
+                    System.out.println("Ошибка отпрвления данных :(");
+                    e.printStackTrace();
+                }
+                try {
+                    getMessage();
+                } catch (IOException e) {
+                    System.out.println("Ошибка получения данных :(");
                     e.printStackTrace();
                 }
             }
         }).start();
 
     }
+
+    public void sendMessage() throws IOException {
+        String str = tb_message.getText().toString();
+        byte[] bytes = str.getBytes();
+        InetAddress address = InetAddress.getByName("192.168.56.1");
+        DatagramPacket packet = new DatagramPacket(bytes, bytes.length, address, 5040);
+        socket.send(packet);
+        System.out.println("Данные отправлены :]");
+        tb_message.setText("");
+    }
+
+    public void getMessage() throws IOException {
+        byte[] bytes1 = new byte[2048];
+        DatagramPacket packet1 = new DatagramPacket(bytes1, bytes1.length);
+        socket.receive(packet1);
+        System.out.println("Данные получены");
+        String str1 = new String(packet1.getData(), 0, packet1.getLength());
+        if(tb_serverData.getText().toString() != "")
+        {
+            tb_serverData.setText("");
+            tb_serverData.setText(str1);
+        } else tb_serverData.setText(str1);
+    }
+
+
 }
