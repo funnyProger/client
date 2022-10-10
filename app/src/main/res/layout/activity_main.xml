@@ -2,50 +2,144 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
+    android:id="@+id/id_relativeLayout"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".client"
     tools:layout_editor_absoluteY="25dp">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/tb_serverData"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Данные с сервера"
+            android:inputType="textPersonName"
+            android:minHeight="48dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/tb_IP"
+                android:layout_width="354dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="Введите IP полчателя"
+                android:inputType="textPersonName"
+                android:minHeight="48dp" />
+
+            <ImageButton
+                android:id="@+id/btn_clearIP"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="onClickClear"
+                app:srcCompat="@drawable/x"
+                tools:ignore="SpeakableTextPresentCheck" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/tb_serverPORT"
+                android:layout_width="354dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="Введите PORT получателя"
+                android:inputType="textPersonName"
+                android:minHeight="48dp" />
+
+            <ImageButton
+                android:id="@+id/btn_clearServerPORT"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="onClickClear"
+                app:srcCompat="@drawable/x"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/tb_clientPORT"
+                android:layout_width="357dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="Введите PORT отправителя"
+                android:inputType="textPersonName"
+                tools:ignore="TouchTargetSizeCheck" />
+
+            <ImageButton
+                android:id="@+id/btn_clearClientPORT"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="onClickClear"
+                app:srcCompat="@drawable/x"
+                tools:ignore="SpeakableTextPresentCheck" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/tb_message"
+                android:layout_width="357dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="Введите запрос"
+                android:inputType="textPersonName"
+                tools:ignore="TouchTargetSizeCheck" />
+
+            <ImageButton
+                android:id="@+id/btn_clearMessage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onClickClear"
+                app:srcCompat="@drawable/x"
+                tools:ignore="SpeakableTextPresentCheck" />
+        </LinearLayout>
+
+    </LinearLayout>
+
     <Button
         android:id="@+id/btn_send"
-        android:layout_width="wrap_content"
+        android:layout_width="189dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:minWidth="32dp"
-        android:minHeight="48dp"
-        android:onClick="onClickSend"
-        android:text="Send"
-        tools:ignore="TextSizeCheck" />
-
-    <EditText
-        android:id="@+id/tb_message"
-        android:layout_width="307dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="10dp"
-        android:layout_toStartOf="@+id/btn_send"
-        android:ems="10"
-        android:hint="Введите запрос"
-        android:inputType="textPersonName"
-        android:minHeight="48dp"
-        android:textColorHint="#757575" />
-
-    <EditText
-        android:id="@+id/tb_serverData"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/tb_message"
         android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="84dp"
-        android:layout_marginEnd="117dp"
-        android:layout_marginBottom="253dp"
-        android:ems="10"
-        android:hint="Ответ от сервера"
-        android:inputType="textPersonName"
-        android:minHeight="48dp" />
+        android:layout_marginStart="112dp"
+        android:layout_marginTop="281dp"
+        android:layout_marginEnd="110dp"
+        android:background="#616161"
+        android:hapticFeedbackEnabled="false"
+        android:onClick="onClickSend"
+        android:text="Отправить запрос"
+        app:rippleColor="#6E6E6E" />
 
 
 </RelativeLayout>
