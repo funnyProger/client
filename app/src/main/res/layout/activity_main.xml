@@ -9,18 +9,16 @@
     tools:layout_editor_absoluteY="25dp">
 
     <LinearLayout
+        android:id="@+id/id_linerLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="0dp"
         android:orientation="vertical">
-
-        <EditText
-            android:id="@+id/tb_serverData"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Данные с сервера"
-            android:inputType="textPersonName"
-            android:minHeight="48dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -37,14 +35,6 @@
                 android:inputType="textPersonName"
                 android:minHeight="48dp" />
 
-            <ImageButton
-                android:id="@+id/btn_clearIP"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:onClick="onClickClear"
-                app:srcCompat="@drawable/x"
-                tools:ignore="SpeakableTextPresentCheck" />
         </LinearLayout>
 
         <LinearLayout
@@ -62,15 +52,6 @@
                 android:inputType="textPersonName"
                 android:minHeight="48dp" />
 
-            <ImageButton
-                android:id="@+id/btn_clearServerPORT"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:onClick="onClickClear"
-                app:srcCompat="@drawable/x"
-                tools:ignore="SpeakableTextPresentCheck" />
-
         </LinearLayout>
 
         <LinearLayout
@@ -80,7 +61,7 @@
 
             <EditText
                 android:id="@+id/tb_clientPORT"
-                android:layout_width="357dp"
+                android:layout_width="229dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
@@ -88,58 +69,50 @@
                 android:inputType="textPersonName"
                 tools:ignore="TouchTargetSizeCheck" />
 
-            <ImageButton
-                android:id="@+id/btn_clearClientPORT"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:onClick="onClickClear"
-                app:srcCompat="@drawable/x"
-                tools:ignore="SpeakableTextPresentCheck" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="horizontal">
-
-            <EditText
-                android:id="@+id/tb_message"
-                android:layout_width="357dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="10"
-                android:hint="Введите запрос"
-                android:inputType="textPersonName"
-                tools:ignore="TouchTargetSizeCheck" />
-
-            <ImageButton
-                android:id="@+id/btn_clearMessage"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:onClick="onClickClear"
-                app:srcCompat="@drawable/x"
-                tools:ignore="SpeakableTextPresentCheck" />
         </LinearLayout>
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/btn_send"
-        android:layout_width="189dp"
-        android:layout_height="wrap_content"
+    <ScrollView
+        android:layout_width="234dp"
+        android:layout_height="515dp"
+        android:layout_below="@+id/id_linerLayout"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="0dp"
+
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="3dp"
+        android:layout_marginBottom="0dp"
+        android:layout_toStartOf="@+id/id_linearLayoutCheckBox"
+        tools:ignore="SpeakableTextPresentCheck">
+
+        <TextView
+            android:id="@+id/tb_Serverdata"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Данные с сервера" />
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/id_linearLayoutCheckBox"
+        android:layout_width="174dp"
+        android:layout_height="516dp"
+        android:layout_below="@+id/id_linerLayout"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="112dp"
-        android:layout_marginTop="281dp"
-        android:layout_marginEnd="110dp"
-        android:background="#616161"
-        android:hapticFeedbackEnabled="false"
-        android:onClick="onClickSend"
-        android:text="Отправить запрос"
-        app:rippleColor="#6E6E6E" />
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="0dp"
+        android:orientation="vertical">
+
+        <CheckBox
+            android:id="@+id/chb_age"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Возраст создателя" />
+
+    </LinearLayout>
 
 
 </RelativeLayout>
