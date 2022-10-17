@@ -76,7 +76,7 @@
     <LinearLayout
         android:id="@+id/id_linearLayoutCheckBox"
         android:layout_width="113dp"
-        android:layout_height="181dp"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/id_linerLayout"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="12dp"
@@ -109,16 +109,28 @@
             android:text="OS"
             tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
 
+        <CheckBox
+            android:id="@+id/check_memory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Физические диски" />
+
+        <CheckBox
+            android:id="@+id/check_ip"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="IP" />
+
     </LinearLayout>
 
     <Button
         android:id="@+id/btn_getData"
-        android:layout_width="136dp"
-        android:layout_height="65dp"
+        android:layout_width="137dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="3dp"
-        android:layout_marginEnd="13dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="14dp"
+        android:layout_marginBottom="13dp"
         android:layout_toStartOf="@+id/btn_stop"
         android:onClick="onClickSendAndGet"
         android:text="Получить данные" />
@@ -129,8 +141,8 @@
         android:layout_height="61dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="176dp"
-        android:layout_marginBottom="9dp"
+        android:layout_marginEnd="151dp"
+        android:layout_marginBottom="11dp"
         android:onClick="onClickStop"
         android:text="Стоп" />
 

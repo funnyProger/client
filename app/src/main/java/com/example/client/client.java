@@ -17,12 +17,11 @@ import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.util.ArrayList;
-import java.util.List;
 
 public class client extends AppCompatActivity {
 
     EditText tb_serverIP, tb_serverPORT, tb_clientPORT;
-    CheckBox check_age, check_date, check_time, check_os;
+    CheckBox check_age, check_date, check_time, check_os, check_disk, check_ip;
     Button btn_getData;
     DatagramSocket socket;
     Handler handler;
@@ -51,6 +50,8 @@ public class client extends AppCompatActivity {
         check_date = findViewById(R.id.check_date);
         check_time = findViewById(R.id.check_time);
         check_os = findViewById(R.id.check_os);
+        check_disk = findViewById(R.id.check_memory);
+        check_ip = findViewById(R.id.check_ip);
 
         btn_getData = findViewById(R.id.btn_getData);
 
@@ -165,6 +166,10 @@ public class client extends AppCompatActivity {
         if(check_date.isChecked()) checkBoxData = checkBoxData + "DATE" + s;
         if(check_time.isChecked()) checkBoxData = checkBoxData + "TIME" + s;
         if(check_os.isChecked()) checkBoxData = checkBoxData + "OS" + s;
+        if(check_disk.isChecked()) checkBoxData = checkBoxData + "DISK" + s;
+        if(check_ip.isChecked()) checkBoxData = checkBoxData + "IP" + s;
+
+
 
 
 
